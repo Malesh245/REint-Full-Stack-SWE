@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = ">=0.115.0"
+uvicorn = ">=0.30.0"
+httpx = ">=0.27.0"
+pandas = ">=2.2.0"
+numpy = ">=2.0.0"
+python-dateutil = ">=2.9.0"
+
+[requires]
+python_version = "3.12"

@@ -2,4 +2,6 @@
 api/.python-version text eol=lf
 pyproject.toml text eol=lf
 api/pyproject.toml text eol=lf
+Pipfile text eol=lf
 requirements.txt text eol=lf
+vercel.json text eol=lf
