@@ -22,9 +22,24 @@ settings = get_settings()
 # Reusable async HTTP client
 _client: Optional[httpx.AsyncClient] = None
 
-# Ensure cache directory exists
-CACHE_PATH = Path(settings.CACHE_DIR)
-CACHE_PATH.mkdir(parents=True, exist_ok=True)
+# Multi-location cache directory resolution
+def _resolve_cache_dir() -> Path:
+    candidates = [
+        Path(__file__).resolve().parent.parent.parent / "data_cache",
+        Path(settings.CACHE_DIR),
+        Path(__file__).resolve().parent.parent / "data_cache",
+    ]
+    for c in candidates:
+        if c.exists() and any(c.glob("*.json")):
+            return c
+    p = Path(settings.CACHE_DIR)
+    try:
+        p.mkdir(parents=True, exist_ok=True)
+    except Exception:
+        pass
+    return p
+
+CACHE_PATH = _resolve_cache_dir()
 
 
 async def get_http_client() -> httpx.AsyncClient:

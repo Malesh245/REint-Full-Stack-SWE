@@ -229,19 +229,24 @@ $$\text{Error}_t = F_t - A_t$$
 
 ## 🚢 Deployment Guide
 
-### Deploying Frontend to Vercel
-1. Install the Vercel CLI: `npm i -g vercel`
-2. Navigate to `frontend`: `cd frontend`
-3. Run `vercel`:
-   ```bash
-   vercel --prod
-   ```
-4. Set the environment variable `VITE_API_URL` to your deployed backend address.
+### Deploying Full-Stack (Frontend + Backend) to Vercel (1-Click)
 
-### Deploying Backend to Railway / Render / Heroku
-1. The `backend/Dockerfile` is ready for instant deployment.
-2. In Railway/Render, create a new service from the repository, set the root directory to `backend`.
-3. Port defaults to `8000`.
+The repository is pre-configured with root [`vercel.json`](./vercel.json) and serverless function [`api/index.py`](./api/index.py) to deploy **both the React frontend and FastAPI backend together on Vercel** under a single domain:
+
+1. Go to **[vercel.com](https://vercel.com)** and sign in with your GitHub account.
+2. Click **"Add New Project"** and select **`REint-Full-Stack-SWE`**.
+3. Leave all settings as default (root directory `.`, framework auto-detected).
+4. Click **"Deploy"**.
+5. In ~45 seconds, Vercel will build the React frontend and configure the Python serverless API under a single live URL (e.g., `https://reint-full-stack-swe.vercel.app`).
+   - Frontend: `https://<your-project>.vercel.app/`
+   - API Endpoints: `https://<your-project>.vercel.app/api/*`
+
+### Alternative: Docker & Container Hosting (Koyeb / Railway / Heroku)
+
+If container-based hosting is desired:
+- **Koyeb**: Connect repository, set root directory to `backend`, builder to `Docker`, port `8000` (Free 24/7 without sleeping).
+- **Heroku**: Uses [`backend/Procfile`](./backend/Procfile) and [`backend/runtime.txt`](./backend/runtime.txt).
+- **Docker Compose**: Run `docker-compose up --build` on any Linux/Cloud VPS.
 
 ---
 
