@@ -38,3 +38,9 @@ yarn-error.log*
 # Assignment and Internal Documents
 *.docx
 *.doc
+
+# Media and video render artifacts (uploaded to YouTube)
+*.mp4
+*.mp3
+video_frames/
+video_slides_input.txt
