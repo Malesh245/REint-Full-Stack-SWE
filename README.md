@@ -77,6 +77,8 @@ In the UK electricity market, utility trading desks must procure sufficient elec
 
 ```
 .
+├── api/
+│   └── index.py                  # Vercel serverless ASGI entrypoint for FastAPI
 ├── backend/
 │   ├── app/
 │   │   ├── __init__.py
@@ -105,11 +107,10 @@ In the UK electricity market, utility trading desks must procure sufficient elec
 │   ├── Dockerfile                # Multi-stage build (Node build -> Nginx server)
 │   ├── nginx.conf                # Nginx reverse proxy configuration
 │   ├── package.json              # Frontend scripts and dependencies
-│   ├── vercel.json               # Vercel SPA routing configuration
 │   └── vite.config.js            # Vite build and dev proxy configuration
 ├── docker-compose.yml            # Multi-container orchestration (Frontend + Backend)
-├── PRESENTATION_PITCH.md         # Deliverable 3.1 Part 1: Client pilot presentation script
-├── TECH_LEAD_REVIEW.md           # Deliverable 3.1 Part 2: Tech lead architecture & code review
+├── requirements.txt              # Root serverless Python requirements
+├── vercel.json                   # Full-stack Vercel deployment configuration
 └── README.md                     # Comprehensive project documentation
 ```
 
@@ -241,11 +242,10 @@ The repository is pre-configured with root [`vercel.json`](./vercel.json) and se
    - Frontend: `https://<your-project>.vercel.app/`
    - API Endpoints: `https://<your-project>.vercel.app/api/*`
 
-### Alternative: Docker & Container Hosting (Koyeb / Railway / Heroku)
+### Alternative: Docker & Container Hosting (Koyeb / Railway)
 
 If container-based hosting is desired:
 - **Koyeb**: Connect repository, set root directory to `backend`, builder to `Docker`, port `8000` (Free 24/7 without sleeping).
-- **Heroku**: Uses [`backend/Procfile`](./backend/Procfile) and [`backend/runtime.txt`](./backend/runtime.txt).
 - **Docker Compose**: Run `docker-compose up --build` on any Linux/Cloud VPS.
 
 ---
@@ -264,6 +264,7 @@ In accordance with Section 2 of the challenge instructions, the following AI too
 - [x] **January 2026 Scope**: National-level Elexon BMRS data (`FUELHH` actuals & `WINDFOR` forecasts)
 - [x] **Quantified Forecast Accuracy**: MAE, RMSE, MAPE, Bias, Max Error, Correlation, Error Distribution
 - [x] **Dockerized**: Multi-stage `Dockerfile`s and `docker-compose.yml`
-- [x] **Section 3.1 Part 1 Presentation**: Client pilot presentation script in [`PRESENTATION_PITCH.md`](./PRESENTATION_PITCH.md)
-- [x] **Section 3.1 Part 2 Tech Lead Review**: Architecture and implementation review in [`TECH_LEAD_REVIEW.md`](./TECH_LEAD_REVIEW.md)
+- [x] **Section 3.1 Part 1 Presentation**: Client pilot presentation (Delivered in 10-Minute Video Walkthrough)
+- [x] **Section 3.1 Part 2 Tech Lead Review**: Architecture and implementation review (Delivered in 10-Minute Video Walkthrough)
 - [x] **Section 3.2 Public Repo README**: Comprehensive file index, setup instructions, and deployment details
+

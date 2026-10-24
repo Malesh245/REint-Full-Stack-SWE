@@ -38,9 +38,23 @@ yarn-error.log*
 # Assignment and Internal Documents
 *.docx
 *.doc
+PRESENTATION_PITCH.md
+TECH_LEAD_REVIEW.md
 
-# Media and video render artifacts (uploaded to YouTube)
+# Video and Voiceover Generation Tools
+build_slides.py
+generate_voiceover.py
+render_final_video.py
+video_slides_input.txt
+voiceover_*.mp3
+video_frames/
 *.mp4
 *.mp3
-video_frames/
-video_slides_input.txt
+
+# Cloud Platform Configs
+render.yaml
+Procfile
+runtime.txt
+backend/Procfile
+backend/runtime.txt
+
