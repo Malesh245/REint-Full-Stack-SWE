@@ -2,11 +2,11 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-# Use Astral's uv for fast, reliable, parallel package installation
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
-
 COPY requirements.txt .
-RUN uv pip install --system --no-cache -r requirements.txt
+
+# Install uv via fast mirror, then install requirements with parallel uv engine
+RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com uv && \
+    uv pip install --system --index-url https://mirrors.aliyun.com/pypi/simple/ -r requirements.txt
 
 COPY . .
 
