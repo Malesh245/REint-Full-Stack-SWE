@@ -110,7 +110,6 @@ In the UK electricity market, utility trading desks must procure sufficient elec
 ├── docker-compose.yml            # Multi-container orchestration (Frontend + Backend)
 ├── PRESENTATION_PITCH.md         # Deliverable 3.1 Part 1: Client pilot presentation script
 ├── TECH_LEAD_REVIEW.md           # Deliverable 3.1 Part 2: Tech lead architecture & code review
-├── REint Full Stack SWE challenge v4 Shared.docx  # Original challenge specification
 └── README.md                     # Comprehensive project documentation
 ```
 
