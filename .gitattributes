@@ -1,0 +1,5 @@
+.python-version text eol=lf
+api/.python-version text eol=lf
+pyproject.toml text eol=lf
+api/pyproject.toml text eol=lf
+requirements.txt text eol=lf
