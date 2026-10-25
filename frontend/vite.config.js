@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  build: {
+    outDir: '../public',
+    emptyOutDir: true,
+  },
   server: {
     port: 3000,
     proxy: {
@@ -11,3 +15,4 @@ export default defineConfig({
     },
   },
 });
+
