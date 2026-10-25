@@ -26,6 +26,12 @@ _client: Optional[httpx.AsyncClient] = None
 def _resolve_cache_dir() -> Path:
     candidates = [
         Path(__file__).resolve().parent.parent.parent / "data_cache",
+        Path(__file__).resolve().parent.parent.parent.parent / "api" / "data_cache",
+        Path(os.getcwd()) / "api" / "data_cache",
+        Path(os.getcwd()) / "backend" / "data_cache",
+        Path(os.getcwd()) / "data_cache",
+        Path("/var/task/api/data_cache"),
+        Path("/var/task/backend/data_cache"),
         Path(settings.CACHE_DIR),
         Path(__file__).resolve().parent.parent / "data_cache",
     ]

@@ -76,6 +76,9 @@ def _cache_key(prefix: str, **kwargs) -> str:
 
 
 @app.get("/")
+@app.get("/api")
+@app.get("/health")
+@app.get("/api/health")
 async def root():
     """Health check endpoint."""
     return {
@@ -87,6 +90,7 @@ async def root():
 
 
 @app.get("/api/actuals")
+@app.get("/actuals")
 async def get_actuals(
     date_from: str = Query(
         default=None,
@@ -137,6 +141,7 @@ async def get_actuals(
 
 
 @app.get("/api/forecasts")
+@app.get("/forecasts")
 async def get_forecasts(
     date_from: str = Query(
         default=None,
@@ -221,6 +226,7 @@ async def get_forecasts(
 
 
 @app.get("/api/comparison")
+@app.get("/comparison")
 async def get_comparison(
     date_from: str = Query(default=None),
     date_to: str = Query(default=None),
@@ -280,6 +286,7 @@ async def get_comparison(
 
 
 @app.get("/api/accuracy")
+@app.get("/accuracy")
 async def get_accuracy(
     date_from: str = Query(default=None),
     date_to: str = Query(default=None),
@@ -350,6 +357,7 @@ async def get_accuracy(
 
 
 @app.get("/api/forecast-evolution")
+@app.get("/forecast-evolution")
 async def get_forecast_evolution(
     target_date: str = Query(
         description="Target delivery date (YYYY-MM-DD)",
@@ -434,6 +442,7 @@ async def get_forecast_evolution(
 
 
 @app.delete("/api/cache")
+@app.delete("/cache")
 async def clear_cache():
     """Clear the in-memory cache."""
     global _cache
